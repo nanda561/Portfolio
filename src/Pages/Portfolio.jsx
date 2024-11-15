@@ -1,5 +1,7 @@
 import React from 'react';
 import './Portfolio.css';
+import Link from '../assets/link.svg';
+
 
 const Portfolio = () => {
     return (
@@ -57,7 +59,7 @@ const Portfolio = () => {
                             <div className="icon-block">
                                 <a href="https://www.linkedin.com/in/nanda-kishore-8ba611292/" target="_blank" rel="noopener noreferrer">
                                 <img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs3UHgNa9VXUDTrVTsfjkiWrMovEWvXnJ_eg&s"
+                                    src={Link}
                                     alt="Linkedin Icon"
                                 />
                                 </a>

@@ -191,8 +191,60 @@ a {
     margin: 0px auto;
     width: 60%;
     animation: Rotate-reverse 20s linear infinite;
+   
+    transition: background-color 0.3s ease, transform 0.3s ease, background-image 0.3s ease;
+}
+/* Hover color effect using CSS filter */
+icon-block:hover {
+    background-color: #0077B5; /* Default color (LinkedIn) */
 }
 
+.icon-block:hover img {
+    filter: invert(1); /* Invert the icon color */
+}
+
+/* Specific background colors on hover for each social icon */
+.icon-block:nth-child(1):hover {
+    background-color: #130f0b; /* GitHub dark color */
+}
+
+/* Define the hover effect for the Instagram icon */
+.icon-block:nth-child(2):hover {
+    background-color: transparent;  /* Remove solid color on hover */
+    background-image: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); /* Gradient effect */
+    background-size: 200% 200%;
+    background-position: 100% 0;
+}
+
+/* Change the color of the Instagram icon when hovered */
+.icon-block:nth-child(2):hover img {
+    filter: brightness(0) invert(1); /* Invert image color to match the gradient effect */
+}
+
+/* Reset background for non-hover state */
+.icon-block:nth-child(2) {
+    background-color: #fff;
+}
+
+/* Make sure the icon inside is centered */
+.icon-block img {
+    width: 60%;
+    transition: background-color 0.3s ease, transform 0.3s ease, background-image 0.3s ease;
+}
+
+/* On hover, the image will scale and its color will change */
+.icon-block:nth-child(2):hover img {
+    transform: scale(1.1); /* Optional: scale image on hover */
+}
+
+
+.icon-block:nth-child(3):hover {
+    background-color: #0088cc; /* Telegram blue color */
+}
+
+.icon-block:nth-child(4):hover {
+    background-color: #0077B5; /* LinkedIn blue color */
+}
 .icon-block:first-child {
     top: 0;
     left: 50%;
