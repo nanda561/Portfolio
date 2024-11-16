@@ -1,6 +1,8 @@
 import React from 'react';
 import './Portfolio.css';
 import Link from '../assets/link.svg';
+import Profile from '../assets/images.jpg';
+import Skills from '../Components/Skills';
 
 
 const Portfolio = () => {
@@ -67,7 +69,7 @@ const Portfolio = () => {
                         </div>
                         <div className="images">
                             <img
-                                src=""
+                                src={Profile}
                                 alt="Profile"
                                 className="img-w"
                             />
@@ -85,6 +87,9 @@ const Portfolio = () => {
                     </div>
                 </div>
             </section>
+
+            <Skills/>
+
         </div>
     );
 };
