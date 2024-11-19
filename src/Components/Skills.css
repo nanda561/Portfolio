@@ -1,121 +1,67 @@
-/* Main container styling */
+/* General Container Styling */
 .skills-container {
-    text-align: center;
-    color: white;
-    background-color:  #1F252E;
-    padding: 50px;
-    position: relative;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #1F252E; /* Dark background */
+    padding: 20px;
+  }
+  
+  /* Title Styling */
+  .skills-title {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Grid Layout */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 900px;
     
   }
   
-  /* Title in the center of the orbit */
-  .skills-title {
-    font-size: 24px;
-    font-weight: 400;
-    margin: 0;
-    color: #f9532d;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-  }
-  
-  /* Orbit container */
-  .orbit-container {
-    position: relative;
-    width: 500px;
-    height: 500px;
-    margin: 0 auto;
-  }
-  
-  .orbit {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    animation: rotate 10s linear infinite;
-  }
-  
-  /* Skill icons */
-  .skill-icon {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    background-color: #1e1e1e;
-    border: 2px solid #f9532d;
-    border-radius: 50%;
-    color: white;
+  /* Individual Skill Cards */
+  .skill-card {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
+    height: 120px;
+    background-color: #27293d; /* Card background */
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 10px;
+    border: transparent;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .icon-image {
-    width: 50px;
+  
+  .skill-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+    
+  }
+  
+  /* Skill Icon */
+  .skill-icon {
     height: 50px;
-    object-fit: contain;
-  }
-  /* Icon positions for a symmetrical layout */
-  .html-icon {
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 50px;
+    margin-bottom: 10px;
   }
   
-  .css-icon {
-    top: 20%;
-    right: 10%;
-    transform: translate(50%, -50%);
-  }
-  
-  .js-icon {
-    top: 50%;
-    right: 0;
-    transform: translate(50%, -50%);
-  }
-  
-  .react-icon {
-    bottom: 20%;
-    right: 10%;
-    transform: translate(50%, 50%);
-  }
-  
-  .python-icon {
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
-  }
-  
-  .git-icon {
-    bottom: 20%;
-    left: 10%;
-    transform: translate(-50%, 50%);
-  }
-  
-  .java-icon {
-    top: 50%;
-    left: 0;
-    transform: translate(-50%, -50%);
-  }
-  
-  .cpp-icon {
-    top: 20%;
-    left: 10%;
-    transform: translate(-50%, -50%);
-  }
-  
-  /* Animation for orbit rotation */
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  /* Skill Name */
+  .skill-name {
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: center;
   }
   

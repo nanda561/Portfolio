@@ -1,24 +1,37 @@
 import React from "react";
-import "./Skills.css"; 
-import {java} from '../assets/Skills/Skills.js';
+import "./Skills.css";
+import { java,python,js,html,css,git,github,react,C,figma} from '../assets/Skills/Skills.js'; // Correct import
 
 const Skills = () => {
+  const skills = [
+    { name: "Java", image: java },
+    { name: "C/C++", image: C },
+    { name: "Python", image: python},
+    { name: "HTML", image: html },
+    { name: "CSS", image: css},
+    { name: "JavaScript", image: js },
+    { name: "React", image: react },
+    { name: "Figma", image: figma },
+    { name: "GitHub", image: github },
+    { name: "Git", image: git },
+  ];
+
   return (
-    <section className="skills-container">
-      <h2 className="skills-title">MY SKILLS</h2>
-      <div className="orbit-container">
-        <div className="orbit">
-          <div className="skill-icon html-icon">HTML</div>
-          <div className="skill-icon css-icon">CSS</div>
-          <div className="skill-icon js-icon">JavaScript</div>
-          <div className="skill-icon react-icon">React</div>
-          <div className="skill-icon python-icon">Python</div>
-          <div className="skill-icon git-icon">Git</div>
-          <div className="skill-icon java-icon"><img src={java} alt="Java" className="icon-image" /></div>
-          <div className="skill-icon cpp-icon">C/C++</div>
-        </div>
+    <div className="skills-container">
+      <h2 className="skills-title">My Skills</h2>
+      <div className="skills-grid">
+        {skills.map((skill, index) => (
+          <div key={index} className="skill-card">
+            <img
+              src={skill.image}
+              alt={skill.name}
+              className="skill-icon"
+            />
+            <p className="skill-name">{skill.name}</p>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 
