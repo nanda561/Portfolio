@@ -1,6 +1,6 @@
 import React from "react";
 import "./Skills.css";
-import { java,python,js,html,css,git,github,react,C,figma} from '../assets/Skills/Skills.js'; // Correct import
+import { java,python,js,html,css,git,github,react,C,figma,docker} from '../assets/Skills/Skills.js'; // Correct import
 
 const Skills = () => {
   const skills = [
@@ -14,6 +14,7 @@ const Skills = () => {
     { name: "Figma", image: figma },
     { name: "GitHub", image: github },
     { name: "Git", image: git },
+    { name: "Dockert", image: docker },
   ];
 
   return (

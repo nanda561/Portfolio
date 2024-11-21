@@ -8,4 +8,5 @@ import github from './github.svg';
 import react from './react.svg';
 import C from './C.svg';
 import figma from './figma.svg';
-export { java,python,js,html,css,git,github,react,C,figma};              
+import docker from './docker.svg';
+export { java,python,js,html,css,git,github,react,C,figma,docker};              

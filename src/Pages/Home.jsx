@@ -3,6 +3,7 @@ import "./Home.css";
 import { Link, Outlet } from "react-router-dom";
 import Linked from "../assets/link.svg";
 import Profile from "../assets/images.jpg";
+import Whatsapp from "../assets/whatsapp.svg";
 
 const Portfolio = () => {
   return (
@@ -11,7 +12,7 @@ const Portfolio = () => {
       <header className="container">
         <div className="page-header">
           <div className="logo">
-            <a href="#">Logo.</a>
+            <a href="#"></a>
           </div>
           <input type="checkbox" id="click" />
           <label htmlFor="click" className="mainicon">
@@ -22,7 +23,7 @@ const Portfolio = () => {
           <ul>
             <li>
                 <a style={{ "--navAni": 1 }}>
-              <Link to="/">Home</Link>
+              Home
               </a>
             </li>
             <li>
@@ -31,7 +32,7 @@ const Portfolio = () => {
               </a>
             </li>
             <li>
-              <Link to="skills">Skills</Link>
+              <Link to="/skills">Skills</Link>
             </li>
             <li>
               <a href="#" style={{ "--navAni": 4 }}>
@@ -78,12 +79,12 @@ const Portfolio = () => {
               </div>
               <div className="icon-block">
                 <a
-                  href="https://t.me/nk31102"
+                  href="https://wa.me/9347521480"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <img
-                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-WWnXxgKNxwqarx8Vr_xpaCcwOQbv7bpFxWXy1o7DCq7jZNiT3CFdAo52AvJol-C-3InAzj6B4isdJVwVCAlUY9jxqgM43wDXrmfsqL4PGr-fsBG0YjcOzwAHFscoDXg3EGlhupxjKRwrMe7Y2bX9VzTc-RY95A03bV1avKnjwJZjh0HKbGZDEa73mPU/s1600/telegram.png"
+                    src={Whatsapp}
                     alt="Telegram Icon"
                   />
                 </a>
