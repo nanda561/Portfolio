@@ -1,11 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
-import { Link, Outlet } from "react-router-dom";
 import Linked from "../assets/link.svg";
-import Profile from "../assets/images.jpg";
+import Profile from "../assets/profile.webp";
 import Whatsapp from "../assets/whatsapp.svg";
+import { About } from "../Components/About";
+import Skills from "../Components/Skills";
 
 const Portfolio = () => {
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("ul li a");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.7 } // Trigger when 70% of the section is visible
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
   return (
     <div>
       {/* Header and Navigation */}
@@ -22,17 +49,31 @@ const Portfolio = () => {
           </label>
           <ul>
             <li>
-                <a style={{ "--navAni": 1 }}>
-              Home
+              <a
+                href="#home"
+                style={{ "--navAni": 1 }}
+                className={activeSection === "home" ? "active" : ""}
+              >
+                Home
               </a>
             </li>
             <li>
-              <a href="#" style={{ "--navAni": 2 }}>
+              <a
+                href="#about"
+                style={{ "--navAni": 2 }}
+                className={activeSection === "about" ? "active" : ""}
+              >
                 About
               </a>
             </li>
             <li>
-              <Link to="/skills">Skills</Link>
+              <a
+                href="#skills"
+                style={{ "--navAni": 3 }}
+                className={activeSection === "skills" ? "active" : ""}
+              >
+                Skills
+              </a>
             </li>
             <li>
               <a href="#" style={{ "--navAni": 4 }}>
@@ -49,7 +90,7 @@ const Portfolio = () => {
       </header>
 
       {/* Main Section */}
-      <section className="container">
+      <section id="home" className="container">
         <div className="main">
           <div className="rounding-sec">
             <div className="big-circle">
@@ -78,15 +119,8 @@ const Portfolio = () => {
                 </a>
               </div>
               <div className="icon-block">
-                <a
-                  href="https://wa.me/9347521480"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={Whatsapp}
-                    alt="Telegram Icon"
-                  />
+                <a href="https://wa.me/9347521480" target="_blank" rel="noopener noreferrer">
+                  <img src={Whatsapp} alt="Telegram Icon" />
                 </a>
               </div>
               <div className="icon-block">
@@ -109,17 +143,15 @@ const Portfolio = () => {
               <span style={{ color: "#f9532d" }}>NandaKishore</span>{" "}
               Dharmalingam
             </h1>
-            <p>
-              I'm a professional Web Developer. Our Main Goal is to help &
-              satisfy the local & global clients with web development solutions.
-            </p>
-            <button>Contact Us</button>
           </div>
         </div>
       </section>
-
-      {/* Outlet for Nested Components */}
-      <Outlet />
+      <section id="about">
+        <About />
+      </section>
+      <section id="skills">
+        <Skills />
+      </section>
     </div>
   );
 };
