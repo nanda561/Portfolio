@@ -1,38 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../firebase';
+import React from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const Portfolio = () => {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, 'projects'));
-        const projectsData = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        setProjects(projectsData);
-      } catch (error) {
-        console.error('Error fetching projects:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProjects();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
-      </div>
-    );
-  }
+  // Sample projects data
+  const projects = [
+    {
+      id: 1,
+      title: "Project 1",
+      description: "A sample project description",
+      techStack: ["React", "Node.js", "MongoDB"],
+      githubUrl: "https://github.com",
+      liveUrl: "https://example.com",
+      imageUrl: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg"
+    },
+    {
+      id: 2,
+      title: "Project 2",
+      description: "Another sample project description",
+      techStack: ["React", "Firebase", "Tailwind"],
+      githubUrl: "https://github.com",
+      liveUrl: "https://example.com",
+      imageUrl: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg"
+    }
+  ];
 
   return (
     <div className="container mx-auto px-4 py-16 bg-[#1F252E]">

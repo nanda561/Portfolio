@@ -2,8 +2,6 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../firebase';
 import toast from 'react-hot-toast';
 
 const schema = z.object({
@@ -24,10 +22,8 @@ const Contact = () => {
 
   const onSubmit = async (data) => {
     try {
-      await addDoc(collection(db, 'contacts'), {
-        ...data,
-        createdAt: new Date(),
-      });
+      // For now, just log the form data
+      console.log('Form submitted:', data);
       toast.success('Message sent successfully!');
       reset();
     } catch (error) {
