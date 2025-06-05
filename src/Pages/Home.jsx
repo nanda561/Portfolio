@@ -5,8 +5,10 @@ import Profile from "../assets/profile.webp";
 import Whatsapp from "../assets/whatsapp.svg";
 import { About } from "../Components/About";
 import Skills from "../Components/Skills";
+import Portfolio from "../Components/Portfolio";
+import Contact from "../Components/Contact";
 
-const Portfolio = () => {
+const Home = () => {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
@@ -21,7 +23,7 @@ const Portfolio = () => {
           }
         });
       },
-      { threshold: 0.7 } // Trigger when 70% of the section is visible
+      { threshold: 0.7 }
     );
 
     sections.forEach((section) => {
@@ -35,7 +37,6 @@ const Portfolio = () => {
 
   return (
     <div>
-      {/* Header and Navigation */}
       <header className="container">
         <div className="page-header">
           <div className="logo">
@@ -76,12 +77,20 @@ const Portfolio = () => {
               </a>
             </li>
             <li>
-              <a href="#" style={{ "--navAni": 4 }}>
+              <a
+                href="#portfolio"
+                style={{ "--navAni": 4 }}
+                className={activeSection === "portfolio" ? "active" : ""}
+              >
                 Portfolio
               </a>
             </li>
             <li>
-              <a href="#" style={{ "--navAni": 5 }}>
+              <a
+                href="#contact"
+                style={{ "--navAni": 5 }}
+                className={activeSection === "contact" ? "active" : ""}
+              >
                 Contact
               </a>
             </li>
@@ -89,7 +98,6 @@ const Portfolio = () => {
         </div>
       </header>
 
-      {/* Main Section */}
       <section id="home" className="container">
         <div className="main">
           <div className="rounding-sec">
@@ -152,8 +160,14 @@ const Portfolio = () => {
       <section id="skills">
         <Skills />
       </section>
+      <section id="portfolio">
+        <Portfolio />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
     </div>
   );
 };
 
-export default Portfolio;
+export default Home;
